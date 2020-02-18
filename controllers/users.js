@@ -70,7 +70,7 @@ UsersControls.prototype.login = function (req, res) {
         } else if (result.length === 0) {
             res.send({ status: 404, message: 'record not found' });
         } else {
-            var token = jwt.sign(result[0].toJSON(), 'myapp', { expiresIn: 60 * 5 });
+            var token = jwt.sign(result[0].toJSON(), 'myapp', { expiresIn: 60 * 60 });
             var userInfo = {
                 token: token,
                 details: result[0]
